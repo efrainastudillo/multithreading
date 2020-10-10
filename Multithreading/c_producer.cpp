@@ -17,11 +17,13 @@ int Producer::produce() {
     buffer->push(number);
     return number;
 }
+
 void* Producer::run() {
    while(true){
-       if(buffer->isFull())
-       {}
-       else{}
+       if(buffer->isFull()) {
+           return nullptr; // producer thread will finish
+       }
+       
        usleep(produce());
    }
    return nullptr;

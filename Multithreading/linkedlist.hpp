@@ -13,107 +13,62 @@
 #include <string>
 #include <pthread.h>
 #include <exception>
+#include "c_error.h"
 
 /**
  \brief I need that this Linked List must be thread Safe
  */
 //template<typename T>
 class LinkedList {
-
 public:
     // Constructor
-    LinkedList() : max_size(100){
-        if( pthread_mutex_init(&mutex, NULL) )
-        {
-            char message[256];
-            sprintf(message, "Error Initializing Mutex: [%d] > %s", errno, strerror(errno));
-            throw std::runtime_error(message);
-        }
-        current = nullptr;
-        lenght = 0;
-        // it's going to be implemented later
-        back = nullptr;
-    }
-    
-    virtual ~LinkedList(){
-        pthread_mutex_lock(&mutex);
-        std::cout << "LinkedList is being deleted..." << std::endl;
-        
-        _Node* temp = current;
-        while(temp){
-            current = current->next;
-            std::cout << "deleting: " << temp->value << " ..." << std::endl;
-            delete temp;
-            temp = current;
-        }
-        pthread_mutex_unlock(&mutex);
-        pthread_mutex_destroy(&mutex);
-    }
+    LinkedList();
+    virtual ~LinkedList();
     
     /**
      \brief Append a Node to the front of the list
      \param _value Value to save in front of the list
      */
-    void push(int _value){
-        pthread_mutex_lock(&mutex);
-        _Node* node = _createNode();
-        node->value = _value;
-        node->next = current;
-        current = node;
-        lenght++;
-        std::cout << "Produced: " << _value << std::endl;
-        pthread_mutex_unlock(&mutex);
-    }
+    void push(int _value);
     /**
-     \brief get the value in front of the list and remove it
+     \brief Get the value in front of the list and remove it
      \return the value in front of the list
      */
-    int pop() {
-        pthread_mutex_lock(&mutex);
-        _Node* temp = current;
-        int value = temp->value;
-        current = current->next;
-        delete temp;
-        lenght--;
-        std::cout << "Consumed: " << value << std::endl;
-        pthread_mutex_unlock(&mutex);
-        return value;
-    }
-    bool isFull() {
-        return lenght == max_size;
-    }
-    unsigned getLenght() const { return lenght; }
+    int pop() ;
+    /**
+     \brief Check whether the buffer has reached the max_size of the list
+     \return true if max_size == lenght
+     */
+    bool isFull() ;
     
-    void print() const {
-        std::stringstream ss;
-        ss << "[ ";
-        _Node* temp = current;
-        while(temp){
-            ss << temp->value;
-            temp = temp->next;
-            if(temp)
-                ss << ", ";
-        }
-        ss << " ]";
-        std::cout << ss.str() << " size: "<< lenght << std::endl;
-    }
+    /**
+     \return lenght of the list. Should not be greater than max_size
+     */
+    unsigned getLenght() const;
+    
+    /**
+     \brief Print list
+     */
+    void print() const;
     
 private:
-    pthread_mutex_t mutex;
-    unsigned max_size;
+    pthread_mutex_t mutex; //!< Sincronize access to the list by threads
+    
+    unsigned max_size; //!< Max size of the Nodes in the list
+    
     struct _Node {
         int value;
         _Node * next;
     };
-    unsigned lenght;
+    unsigned lenght; //!< current lenght of the nodes in the list
     _Node* back; //going to be implemted later
     _Node* current;
-    
-    _Node* _createNode(){
-        _Node* node = new _Node;
-        node->next = nullptr;
-        return node;
-    }
+
+    /**
+     \brief Create a new Node to be added to the list
+     \return the New node just created
+     */
+    _Node* _createNode();
 };
 #endif /* linkedlist_hpp */
 

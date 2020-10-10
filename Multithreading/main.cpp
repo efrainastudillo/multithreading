@@ -28,10 +28,12 @@ void * execute(void* args){
 
 int main(int argc, const char * argv[]) {
     
-    // TODO: it should validate when buffer is empty DON'T allow consume  :::  DONE
+    // TODO: it should validate when buffer is empty DON'T allow consume    ::: DONE
+    // TODO: Need Synchronization. mutex? semaphoro? condition variable?    ::: DONE
+    // TODO: What happen if added more consumers?                           ::: DONE
+    
+    
     // TODO: Allow to produce until a value has reached (Check wheter is FUll buffer)  :::
-    // TODO: Need Synchronization. mutex? semaphoro? condition variable?  ::: DONE
-    // TODO: What happen if added more consumers?  ::: DONE (It works fine when sincronization is implemented)
     // TODO: Main thread print all data in buffer when elements are multiple of 5. i.e 5, 10, 15, 20...
     
     c_thread thread1( new Consumer(&list) );
