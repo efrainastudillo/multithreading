@@ -7,7 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7A56081425322D8C00C02028 /* c_error.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7A56081325322D8C00C02028 /* c_error.cpp */; };
+		7A5608192532398800C02028 /* c_producer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7A5608172532398800C02028 /* c_producer.cpp */; };
+		7A56081D25323C7F00C02028 /* c_consumer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7A56081B25323C7F00C02028 /* c_consumer.cpp */; };
 		7A9471462529642D008C2D91 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7A9471452529642D008C2D91 /* main.cpp */; };
+		7A94714F252C2B90008C2D91 /* c_thread.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7A94714D252C2B90008C2D91 /* c_thread.cpp */; };
+		7A947153252C2DDA008C2D91 /* linkedlist.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7A947151252C2DDA008C2D91 /* linkedlist.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -23,8 +28,18 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		7A56081225322D8C00C02028 /* c_error.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = c_error.h; sourceTree = "<group>"; };
+		7A56081325322D8C00C02028 /* c_error.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = c_error.cpp; sourceTree = "<group>"; };
+		7A5608172532398800C02028 /* c_producer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = c_producer.cpp; sourceTree = "<group>"; };
+		7A5608182532398800C02028 /* c_producer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = c_producer.hpp; sourceTree = "<group>"; };
+		7A56081B25323C7F00C02028 /* c_consumer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = c_consumer.cpp; sourceTree = "<group>"; };
+		7A56081C25323C7F00C02028 /* c_consumer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = c_consumer.hpp; sourceTree = "<group>"; };
 		7A9471422529642D008C2D91 /* Multithreading */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Multithreading; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A9471452529642D008C2D91 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		7A94714D252C2B90008C2D91 /* c_thread.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = c_thread.cpp; sourceTree = "<group>"; };
+		7A94714E252C2B90008C2D91 /* c_thread.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = c_thread.hpp; sourceTree = "<group>"; };
+		7A947151252C2DDA008C2D91 /* linkedlist.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = linkedlist.cpp; sourceTree = "<group>"; };
+		7A947152252C2DDA008C2D91 /* linkedlist.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = linkedlist.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +73,16 @@
 			isa = PBXGroup;
 			children = (
 				7A9471452529642D008C2D91 /* main.cpp */,
+				7A94714D252C2B90008C2D91 /* c_thread.cpp */,
+				7A94714E252C2B90008C2D91 /* c_thread.hpp */,
+				7A947151252C2DDA008C2D91 /* linkedlist.cpp */,
+				7A947152252C2DDA008C2D91 /* linkedlist.hpp */,
+				7A56081225322D8C00C02028 /* c_error.h */,
+				7A56081325322D8C00C02028 /* c_error.cpp */,
+				7A5608172532398800C02028 /* c_producer.cpp */,
+				7A5608182532398800C02028 /* c_producer.hpp */,
+				7A56081B25323C7F00C02028 /* c_consumer.cpp */,
+				7A56081C25323C7F00C02028 /* c_consumer.hpp */,
 			);
 			path = Multithreading;
 			sourceTree = "<group>";
@@ -118,7 +143,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A947153252C2DDA008C2D91 /* linkedlist.cpp in Sources */,
 				7A9471462529642D008C2D91 /* main.cpp in Sources */,
+				7A56081425322D8C00C02028 /* c_error.cpp in Sources */,
+				7A56081D25323C7F00C02028 /* c_consumer.cpp in Sources */,
+				7A5608192532398800C02028 /* c_producer.cpp in Sources */,
+				7A94714F252C2B90008C2D91 /* c_thread.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
