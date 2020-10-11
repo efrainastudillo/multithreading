@@ -20,6 +20,8 @@ public:
 private:
     LinkedList* buffer;
     
+    
+    
     int produce();
     virtual void* run();
 };

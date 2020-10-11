@@ -50,9 +50,19 @@ public:
      \brief Print list
      */
     void print() const;
+    /**
+     Awake all thread have been blocked by condition variable
+     */
+    void notifyAll();
+    /**
+     Block a thread waiting for a condition been committed
+     */
+    void wait();
     
 private:
-    pthread_mutex_t mutex; //!< Sincronize access to the list by threads
+    pthread_mutex_t mutex;          //!< Sincronize access to the list by threads
+    pthread_mutex_t m_mutex_full;   //!< Mutex to block the buffer when full limit is reached.
+    pthread_cond_t  m_cond_full;    //!< The condition to unlock m_mutex_full is when 5 nodes have removed from the list at least
     
     unsigned max_size; //!< Max size of the Nodes in the list
     

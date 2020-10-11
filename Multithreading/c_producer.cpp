@@ -7,7 +7,7 @@
 
 #include "c_producer.hpp"
 
-Producer::Producer(LinkedList* _list){
+Producer::Producer(LinkedList* _list) {
     time_t t;
     srand((unsigned)time(&t));
     buffer = _list;
@@ -20,8 +20,10 @@ int Producer::produce() {
 
 void* Producer::run() {
    while(true){
-       if(buffer->isFull()) {
-           return nullptr; // producer thread will finish
+       while( buffer->isFull() ) {
+           buffer->wait(); // stop being produced 
+           // wait to be consumed data
+//           return nullptr; // producer thread will finish
        }
        
        usleep(produce());

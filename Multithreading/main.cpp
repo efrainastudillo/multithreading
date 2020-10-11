@@ -43,7 +43,7 @@ int main(int argc, const char * argv[]) {
     thread2.start();
     thread3.start();
     
-    while(list.getLenght() < 200 )
+    while( !list.isFull() )
     {
     // wait for condition variable that when there are 5 elements in the buffer print them in the console
         list.print();

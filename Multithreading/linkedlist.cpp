@@ -14,7 +14,7 @@ LinkedList::LinkedList() : max_size(100){
     }
     
     current = nullptr;
-    lenght = 0; 
+    lenght = 0;
     // it's going to be implemented later
     back = nullptr;
 }
@@ -86,4 +86,14 @@ LinkedList::_Node* LinkedList::_createNode(){
     _Node* node = new _Node;
     node->next = nullptr;
     return node;
+}
+
+void LinkedList::notifyAll() {
+    
+}
+/**
+ Block a thread waiting for a condition been committed
+ */
+void LinkedList::wait() {
+    
 }
